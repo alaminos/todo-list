@@ -11,3 +11,6 @@ ul {
     font-size: 30px;
 }
 
+.doneTask {
+    text-decoration: line-through;
+}

@@ -16,21 +16,15 @@
       <button onclick="handlers.toggleAll()">Toggle All</button>
     </div>
     
-    <div>
-      <button onclick="handlers.addTodo()">Add task</button>
+    <form onsubmit="return handlers.addTodo();">
+      <button type="submit">Add task</button>
       <input id="addTodoTextInput" type="text" placeholder="new to-do">
-    </div>
+    </form>
     
     <div>
       <button onclick="handlers.changeTodo()">Rename task</button>
       <input id="changeTodoPositionInput" type="number" placeholder="which one?">
       <input id="changeTodoTextInput" type="text" placeholder="new name">
-    </div>
-    
-    
-    <div>
-      <button onclick="handlers.toggleCompleted()">Toggle (un)completed</button>
-      <input id="toggleCompletedPositionInput" type="number" placeholder="which one?">
     </div>
     
     <ul>

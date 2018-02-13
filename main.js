@@ -44,6 +44,7 @@ var handlers = {
       todoList.addTodo(addTodoTextInput.value);
       addTodoTextInput.value = '';
       view.displayTodos();
+      return false;
     },
     changeTodo: function() {
       var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
@@ -57,10 +58,8 @@ var handlers = {
       todoList.deleteTodo(position);
       view.displayTodos();
     },
-    toggleCompleted: function() {
-      var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
-      todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
-      toggleCompletedPositionInput.value = '';
+    toggleCompleted: function(task) {
+      todoList.toggleCompleted(task);
       view.displayTodos();
     },
     toggleAll: function() {
@@ -73,21 +72,21 @@ var handlers = {
 var view = {
     
     displayTodos: function() {
-      debugger;
+      //debugger;
       var todosUl = document.querySelector('ul');
       todosUl.innerHTML = '';
       todoList.todos.forEach(function(todo, position) {  // position when in a forEach, takes the position of the array item
-        var todoLi = document.createElement('li');
-        var todoTextWithCompletion = '';
+        var todoLi = document.createElement('li'); 
+        var toggleBtn = document.createElement('button');
+        var todoTextSpan = document.createElement('span');
         
         if (todo.completed === true) {
-          todoTextWithCompletion = '(x) ' + todo.todoText;
-        } else {
-          todoTextWithCompletion = '( ) ' + todo.todoText;
+          todoTextSpan.className = 'doneTask';  //this class will apply a strikethrough style via CSS
         }
         
         todoLi.id = position;
-        todoLi.textContent = todoTextWithCompletion;
+        todoTextSpan.textContent = todo.todoText;
+        todoLi.appendChild(todoTextSpan);
         todoLi.appendChild(this.createDeleteButton());   //this.createDeleteButton was not working, check MDN doc for Array.prototype.forEach()
         todosUl.appendChild(todoLi);
       }, this)      /* basically the THIS is inside a callback function so it was not referring to the view object
@@ -104,10 +103,14 @@ var view = {
     setUpEventListeners: function() {
       var todoUl = document.querySelector('ul');
       todoUl.addEventListener('click', function(event) {
+        debugger;
         var elemClicked = event.target;
-        if (elemClicked.className = "deleteButton") {
-      handlers.deleteTodo(parseInt(elemClicked.parentNode.id));
-      }
+        if (elemClicked.className == "deleteButton") {
+          handlers.deleteTodo(parseInt(elemClicked.parentNode.id)); 
+          //parent node is <li> element, whose id was set to be its position in array of to-dos.
+      } else if (elemClicked.nodeName == 'SPAN') {
+          handlers.toggleCompleted(parseInt(elemClicked.parentNode.id));
+        } 
       })
     }
   };
