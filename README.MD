@@ -4,13 +4,13 @@ I did this to-do list back in May 2017 following probably the best course for be
 
 
 One of these days I will continue working on this app. Some of the things to improve:
-* user can enter new task by just pressing enter after typing the new task;
+* ~~user can enter new task by just pressing enter after typing the new task~~ done;
 * user can see the tasks look like tiles, tokens or cards, each with the text, an x and a checkbox inside;
 * user can rename task by just clicking on the text of the task itself and typing new name and hitting enter;
 * user can see only one button: the Add button;
 * if there are one or more elements in the list, user can see a second button: the Toggle All button;
 * user can delete task by just clicking the small x inside the task;
-* user can toggle task (to do/ done) by just clicking on the small check-box inside the task;
+* ~~user can toggle task (to do/ done) by just clicking on the small check-box inside the task~~ done but differently;
 
 
 Later on I will think about logging in capabilities and saving data and user info... 
