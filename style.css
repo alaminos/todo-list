@@ -20,6 +20,19 @@ h1 {
 
 ul {
     font-size: 30px;
+    list-style: none;
+}
+
+li {
+    border: solid 1px black;
+    padding: 0.5em;
+    margin-bottom: 1px;
+
+}
+
+.deleteButton, .renameButton {
+    font-size: 10px;
+
 }
 
 .doneTask {
