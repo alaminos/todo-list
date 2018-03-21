@@ -11,24 +11,31 @@
 
   <body>
     <h1>To-do List</h1>
+    <div id="app">
+      <div>
+        <button onclick="handlers.toggleAll()">Toggle All</button>
+      </div>
+      
+      <form onsubmit="return handlers.addTodo();">
+        <button type="submit">Add task</button>
+        <input id="addTodoTextInput" type="text" placeholder="new to-do">
+      </form>
+      
+      <div>
+        <button onclick="handlers.changeTodo()">Rename task</button>
+        <input id="changeTodoPositionInput" type="number" placeholder="which one?">
+        <input id="changeTodoTextInput" type="text" placeholder="new name">
+      </div>
+      
+      <ul>
+      </ul>
+    </div>
 
-    <div>
-      <button onclick="handlers.toggleAll()">Toggle All</button>
+    <div id="instructions">
+      The tasks you enter, will appear in a list format. Once you have completed a task, you can toggle it by just clicking on the task itself. Clicking once again will set it back to uncompleted status.
+      To delete a task, just click the X button. To rename a task... I have to improve that.
     </div>
     
-    <form onsubmit="return handlers.addTodo();">
-      <button type="submit">Add task</button>
-      <input id="addTodoTextInput" type="text" placeholder="new to-do">
-    </form>
-    
-    <div>
-      <button onclick="handlers.changeTodo()">Rename task</button>
-      <input id="changeTodoPositionInput" type="number" placeholder="which one?">
-      <input id="changeTodoTextInput" type="text" placeholder="new name">
-    </div>
-    
-    <ul>
-    </ul>
     <script src="main.js"></script>
   </body>
 </html>

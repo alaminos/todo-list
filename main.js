@@ -1,4 +1,4 @@
-var todoList = {
+const todoList = {
     todos: [],
     addTodo: function(todoText) {
       this.todos.push({
@@ -20,8 +20,7 @@ var todoList = {
       var totalTodos = this.todos.length;
       var completedTodos = 0;
       
-      this.todos.forEach(function(todo) {    // no sabía qué debía sustituir al antiguo this.todos[i] para representar 
-                                              // cada elemento de la lista. La clave estaba en pasar un parámetro en la función (en este caso "todo"), 
+      this.todos.forEach(function(todo) {     
         if (todo.completed === true) {
           completedTodos++;
         }
@@ -38,7 +37,7 @@ var todoList = {
   };
   
 
-var handlers = {
+const handlers = {
     addTodo: function() {
       var addTodoTextInput = document.getElementById('addTodoTextInput');
       todoList.addTodo(addTodoTextInput.value);
@@ -69,16 +68,16 @@ var handlers = {
   };
   
 
-var view = {
+const view = {
     
     displayTodos: function() {
       //debugger;
       var todosUl = document.querySelector('ul');
       todosUl.innerHTML = '';
       todoList.todos.forEach(function(todo, position) {  // position when in a forEach, takes the position of the array item
-        var todoLi = document.createElement('li'); 
-        var toggleBtn = document.createElement('button');
-        var todoTextSpan = document.createElement('span');
+        var todoLi = document.createElement('li')
+          , toggleBtn = document.createElement('button')
+          , todoTextSpan = document.createElement('span');
         
         if (todo.completed === true) {
           todoTextSpan.className = 'doneTask';  //this class will apply a strikethrough style via CSS
@@ -96,7 +95,7 @@ var view = {
     
     createDeleteButton: function() {
       var deleteButton = document.createElement('button');
-      deleteButton.textContent = "delete";
+      deleteButton.textContent = "X";
       deleteButton.className = "deleteButton";
       return deleteButton;
     },

@@ -1,9 +1,20 @@
+html, body {padding:0;margin:0}
+
 body {
-    background-color: rgb(187, 129, 102);
+    background-color: rgba(101, 140, 199, 0.918);
+    display: flex;
+    flex-flow: column;
 
 }
 
+#app {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+}
+
 h1 {
+    text-align: center;
     font-size: 3em;
 }
 
@@ -13,4 +24,9 @@ ul {
 
 .doneTask {
     text-decoration: line-through;
+}
+
+#instructions {
+    margin: 0 auto;
+    width: 300px;
 }
